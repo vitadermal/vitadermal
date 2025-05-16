@@ -34,7 +34,7 @@
       padding:2rem 2.4rem 2.6rem;border-radius:18px;box-shadow:0 8px 24px #0003;
     }
 
-    /* ENCABEZADO */
+    /* ---------- ENCABEZADO ---------- */
     .encabezado{
       display:flex;align-items:center;justify-content:space-between;
       gap:1rem;margin-bottom:1.4rem;flex-wrap:wrap;
@@ -63,13 +63,13 @@
       .titulo{text-align:center}
     }
 
-    /* AVISO */
+    /* ---------- AVISO ---------- */
     p.aviso{
       margin-top:.8rem;font-size:.95rem;background:var(--rosa);
       padding:.6rem .8rem;border-left:4px solid var(--marron-osc);border-radius:8px;
     }
 
-    /* FORMULARIO */
+    /* ---------- FORMULARIO ---------- */
     label{display:block;font-weight:600;margin-bottom:.35rem}
     input,select{
       width:100%;padding:.65rem .8rem;font-size:1rem;
@@ -88,9 +88,23 @@
     button:hover{background:var(--txt)}
     button:active{transform:scale(.97)}
 
-    #ok{margin-top:1.2rem;text-align:center;font-weight:700;
-        color:var(--marron-osc);display:none}
+    /* ---------- ENLACES SOCIALES ---------- */
+    .social{
+      margin-top:1.2rem;display:flex;justify-content:center;gap:1.2rem;
+    }
+    .social a{
+      display:inline-flex;align-items:center;gap:.35rem;
+      font-weight:700;color:var(--txt);text-decoration:none;font-size:.95rem;
+      transition:color .25s;
+    }
+    .social a:hover{color:var(--marron-osc)}
+    .social img{width:28px;height:28px;border-radius:50%;object-fit:cover}
+
+    #ok{margin-top:1.2rem;text-align:center;font-weight:700;color:var(--marron-osc);display:none}
     @media(prefers-reduced-motion:reduce){*{transition:none !important}}
+
+    /* Oculta visualmente el recaptcha; sigue activo */
+    #frm iframe[title="reCAPTCHA"]{display:none!important}
   </style>
 </head>
 <body>
@@ -161,7 +175,7 @@
         <label for="hora">Hora:</label>
         <select id="hora" name="Hora" required>
           <option value="" disabled selected>— Selecciona —</option>
-          <!-- 08:00–19:00 cada 30 min -->
+          <!-- 08:00–19:00 -->
           <option>08:00</option><option>08:30</option>
           <option>09:00</option><option>09:30</option>
           <option>10:00</option><option>10:30</option>
@@ -181,14 +195,22 @@
     <!-- Configuración FormSubmit -->
     <input type="hidden" name="_subject" value="Nueva solicitud de cita – VITADERMAL">
     <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false"><!-- sin verificación -->
-    <!-- correo automático al paciente -->
+    <input type="hidden" name="_captcha" value="true"><!-- recaptcha activo -->
     <input type="hidden" name="_autoresponse"
            value="¡Hola! Tu solicitud de cita ha sido registrada. En breve revisaremos disponibilidad y te confirmaremos por correo. Gracias por confiar en VITADERMAL.">
-    <!-- redirección -->
-    <input type="hidden" name="_next" value="https://vitadermal.github.io/vitadermal/?ok=1">
+    <input type="hidden" name="_next" value="formulario.html?ok=1">
 
     <button type="submit">Enviar solicitud</button>
+
+    <!-- ENLACES SOCIALES -->
+    <div class="social">
+      <a href="https://wa.me/56996901277?text=Hola%20VITADERMAL,%20necesito%20más%20información" target="_blank">
+        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp"> WhatsApp
+      </a>
+      <a href="https://www.instagram.com/vitadermal/" target="_blank">
+        <img src="https://img.freepik.com/vector-premium/icono-logotipo-vector-instagram-logotipo-redes-sociales_901408-392.jpg" alt="Instagram"> Instagram
+      </a>
+    </div>
   </form>
 
   <p id="ok">¡Solicitud registrada! Por favor espera la confirmación de nuestra estética.</p>
@@ -198,8 +220,6 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
   flatpickr('#fecha',{minDate:'today',dateFormat:'d/m/Y',disableMobile:true});
-
-  /* Mostrar aviso si la URL viene con ?ok=1 */
   if(new URLSearchParams(location.search).get('ok')==='1'){
     document.getElementById('ok').style.display='block';
     history.replaceState({},'',location.pathname);
