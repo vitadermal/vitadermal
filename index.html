@@ -6,7 +6,7 @@
   <title>VITADERMAL · Belleza & Salud</title>
   <meta name="theme-color" content="#f8e1e7">
 
-  <!-- Google Font -->
+  <!-- Fuente -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700;800&display=swap" rel="stylesheet">
 
@@ -33,20 +33,17 @@
       padding:.6rem 1.2rem;box-shadow:0 2px 6px #0002;
       gap:.8rem;overflow:visible;
     }
-    .brand{
-      display:flex;align-items:center;gap:.55rem;
-      font-weight:800;font-size:1.44rem;color:var(--txt);white-space:nowrap;
-    }
+    .brand{display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.44rem;color:var(--txt)}
     .brand img{width:41px;height:41px;object-fit:contain}
 
     ul.menu{list-style:none;display:flex;align-items:center;gap:1rem}
     ul.menu li{position:relative}
-    ul.menu a, summary{
+    ul.menu a,summary{
       text-decoration:none;color:var(--txt);font-weight:700;
       padding:.4rem .55rem;border-radius:8px;display:inline-flex;align-items:center;
       gap:.25rem;cursor:pointer;white-space:nowrap;transition:background .2s;
     }
-    ul.menu a:hover, summary:hover{background:var(--marron-osc);color:#fff}
+    ul.menu a:hover,summary:hover{background:var(--marron-osc);color:#fff}
 
     details{position:relative;display:inline-block}
     summary::-webkit-details-marker{display:none}
@@ -54,34 +51,32 @@
     details[open] summary{background:var(--marron-osc);color:#fff}
     .drop-menu{
       position:absolute;top:100%;left:0;background:#fff;border-radius:12px;
-      box-shadow:0 4px 12px #0002;padding:.6rem 0;min-width:180px;z-index:10;
+      padding:.6rem 0;min-width:180px;box-shadow:0 4px 12px #0002;z-index:10;
     }
     .drop-menu a{display:block;padding:.5rem 1rem}
 
     .icon{width:26px;height:26px;border-radius:50%;object-fit:cover;transition:transform .2s}
-    ul.menu a:hover .icon, summary:hover .icon{transform:scale(1.15)}
+    ul.menu a:hover .icon,summary:hover .icon{transform:scale(1.15)}
 
     .btn{display:inline-block;padding:1rem 2rem;font-size:1rem;font-weight:700;
          border:none;border-radius:16px;background:var(--marron-osc);color:#fff;
          text-decoration:none;transition:background .3s,transform .2s}
-    .btn:hover{background:var(--txt)} .btn:active{transform:scale(.97)}
+    .btn:hover{background:var(--txt)}.btn:active{transform:scale(.97)}
 
     /* ---------- QUICK LINKS (solo móvil) ---------- */
     .quick-links{
       display:none;align-items:center;justify-content:center;
-      gap:1.2rem;background:#ffffffee;backdrop-filter:blur(6px);
-      padding:.5rem .9rem;
-      box-shadow:0 2px 6px #0002;
+      gap:1.3rem;background:#ffffffee;backdrop-filter:blur(6px);
+      padding:.55rem .9rem;box-shadow:0 2px 6px #0002;
     }
     .quick-links a{
-      display:inline-flex;align-items:center;gap:.4rem;
-      font-weight:700;color:var(--txt);text-decoration:none;font-size:.95rem;
-      transition:color .25s;
+      display:inline-flex;align-items:center;gap:.45rem;font-weight:700;
+      color:var(--txt);text-decoration:none;font-size:.92rem;transition:color .25s;
     }
     .quick-links a:hover{color:var(--marron-osc)}
     .quick-links img{width:24px;height:24px;border-radius:50%;object-fit:cover}
 
-    /* ---------- HERO & SECCIONES (igual que antes) ---------- */
+    /* ---------- HERO ---------- */
     .hero{
       text-align:center;padding:3rem 1rem;
       background:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),
@@ -94,6 +89,7 @@
     }
     .hero p{font-size:1.05rem;margin-bottom:1.6rem}
 
+    /* ---------- CONTENIDO ---------- */
     .wrap{max-width:1100px;margin:auto;padding:0 1rem 4rem}
     section{margin-top:4rem}
     section h2{
@@ -102,11 +98,13 @@
       -webkit-background-clip:text;color:transparent;
     }
 
+    /* Tratamientos */
     .grid-trat{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
     @media(min-width:800px){.grid-trat{grid-template-columns:repeat(3,1fr)}}
     .trat-card{
       background:#fff;border-radius:16px;overflow:hidden;position:relative;
-      box-shadow:0 6px 18px #0001;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s;
+      box-shadow:0 6px 18px #0001;display:flex;flex-direction:column;
+      transition:transform .3s,box-shadow .3s;
     }
     .trat-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 24px #0003}
     .trat-card::after{
@@ -120,12 +118,14 @@
     .trat-content h3{font-weight:700;font-size:1.2rem;margin-bottom:.4rem}
     .trat-content p{font-size:.95rem}
 
+    /* Blog / Consejos */
     .blog-entry{max-width:800px;margin:0 auto 2.5rem;padding-bottom:2rem;border-bottom:1px solid #ffffff70}
     .blog-entry:last-child{border:none;padding-bottom:0;margin-bottom:0}
     .blog-entry img{width:100%;height:240px;object-fit:cover;border-radius:14px;margin-bottom:1rem}
     .blog-entry h3{font-size:1.3rem;font-weight:800;margin-bottom:.4rem}
     .blog-entry p{font-size:1rem;text-align:justify}
 
+    /* CTA */
     .cta{text-align:center;margin-top:3.5rem}
     .cta h3{
       font-size:1.6rem;font-weight:800;margin-bottom:1.4rem;
@@ -133,6 +133,7 @@
       -webkit-background-clip:text;color:transparent;
     }
 
+    /* Footer */
     footer{
       margin-top:auto;background:#ffffffee;backdrop-filter:blur(6px);
       padding:1rem 1.5rem;text-align:center;font-size:.95rem;box-shadow:0 -2px 6px #0002;
@@ -142,12 +143,11 @@
 
     /* ---------- MOBILE ---------- */
     @media(max-width:640px){
-      /* Ocultar logo, Instagram, Quiénes somos y botón en la barra */
-      .brand, .hide-mobile, .icon-instagram, .btn{display:none}
       nav{justify-content:center;padding:.55rem .9rem}
+      .brand,.hide-mobile,.icon-instagram,.btn{display:none}     /* escondemos extras */
       ul.menu{gap:0}
-      ul.menu a, summary{padding:.35rem .55rem;font-size:.9rem}
-      .quick-links{display:flex}  /* se muestra la franja de enlaces */
+      ul.menu a,summary{padding:.35rem .55rem;font-size:.9rem}
+      .quick-links{display:flex}    /* mostramos franja con links */
     }
   </style>
 </head>
@@ -176,33 +176,28 @@
       </details>
     </li>
 
-    <!-- Quiénes somos aparece solo escritorio -->
     <li class="hide-mobile"><a href="#quienes">Quiénes somos</a></li>
 
-    <!-- Ubícanos (solo escritorio) -->
+    <!-- Ubícanos / Contáctanos / Instagram solo escritorio -->
     <li class="hide-mobile">
       <a href="https://maps.app.goo.gl/ghdCQtosy3FGtkWH8" target="_blank">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC10aIGcrdtvbwpYkeboJsf9YXZ0K6cwbOMw&s"
-             class="icon" alt=""> Ubícanos
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC10aIGcrdtvbwpYkeboJsf9YXZ0K6cwbOMw&s" class="icon" alt="">
+        Ubícanos
       </a>
     </li>
-
-    <!-- Contáctanos (solo escritorio) -->
     <li class="hide-mobile">
       <a href="https://wa.me/56996901277?text=Quiero%20saber%20sobre%20tus%20servicios" target="_blank">
-        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" class="icon" alt=""> Contáctanos
+        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" class="icon" alt="">
+        Contáctanos
       </a>
     </li>
-
-    <!-- Instagram (solo escritorio) -->
     <li class="hide-mobile">
       <a href="https://www.instagram.com/vitadermal/" target="_blank">
         <img src="https://img.freepik.com/vector-premium/icono-logotipo-vector-instagram-logotipo-redes-sociales_901408-392.jpg"
-             class="icon icon-instagram" alt=""> Instagram
+             class="icon icon-instagram" alt="">
+        Instagram
       </a>
     </li>
-
-    <!-- Botón Agendar (solo escritorio) -->
     <li class="hide-mobile">
       <a href="formulario.html" class="btn" style="padding:.6rem 1rem">Agendar hora</a>
     </li>
@@ -228,10 +223,87 @@
   <a href="formulario.html" class="btn">Agendar hora</a>
 </header>
 
+<!-- CONTENIDO -->
 <main class="wrap">
-  <!-- … el resto de secciones (tratamientos, quiénes somos, consejos, CTA) permanecen igual … -->
+  <!-- TRATAMIENTOS -->
+  <section id="tratamientos">
+    <h2>Conoce nuestros servicios</h2>
+
+    <div class="grid-trat">
+      <article class="trat-card">
+        <img src="https://vitalierd.com/wp-content/uploads/SER-FAC-VITA-004-2.jpg" alt="Limpieza facial Glow">
+        <div class="trat-content">
+          <h3>Limpieza facial Glow</h3>
+          <p>Elimina impurezas y revitaliza tu piel con exfoliación enzimática y mascarilla hidratante.</p>
+        </div>
+      </article>
+
+      <article class="trat-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtHeGc247ZdCDgzR-qCU9bpuY0k8jvIvAZnw&s" alt="Depilación láser mini">
+        <div class="trat-content">
+          <h3>Depilación láser zona mini</h3>
+          <p>Tecnología de última generación para zonas pequeñas (axilas, bozo) casi sin dolor.</p>
+        </div>
+      </article>
+
+      <article class="trat-card">
+        <img src="https://www.spaoneandonly.cl/wp-content/uploads/2025/01/shutterstock_2497508837.jpg" alt="Masaje aromaterapia">
+        <div class="trat-content">
+          <h3>Masaje aromaterapia 60&nbsp;min</h3>
+          <p>Relaja cuerpo y mente con aceites esenciales y técnicas suecas antiestrés.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- QUIÉNES SOMOS -->
+  <section id="quienes">
+    <h2>Quiénes somos</h2>
+    <p style="max-width:780px;margin:auto;text-align:justify">
+      <strong>Misión:</strong> Brindar servicios de dermatología y estética de excelencia,
+      combinando ciencia y bienestar para mejorar la calidad de vida y la confianza de cada paciente.<br><br>
+      <strong>Visión:</strong> Ser el centro de referencia en salud cutánea y belleza integral en Latinoamérica,
+      destacándonos por innovación, calidez humana y resultados que superen expectativas.
+    </p>
+  </section>
+
+  <!-- CONSEJOS -->
+  <section id="consejos">
+    <h2>Consejos de cosmetología</h2>
+
+    <article class="blog-entry">
+      <img src="https://bellezaplena.com/wp-content/uploads/2024/06/Emulsion-de-Limpieza-Libra-Cuidado-diario-para-una-piel-suave-y-limpia.jpeg" alt="Limpieza suave">
+      <h3>Limpieza diaria suave</h3>
+      <p>La base de una piel sana es una limpieza suave dos veces al día. Usa un limpiador sin sulfatos que respete el pH y retira el maquillaje antes de dormir para evitar poros obstruidos e inflamación.</p>
+    </article>
+
+    <article class="blog-entry">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk2Z6O54_LfyFv1xMYWXmq7BIEA8mxuSQGlQ&s" alt="Protección solar">
+      <h3>Protección solar todo el año</h3>
+      <p>Los rayos UV causan envejecimiento prematuro y manchas. Aplica un protector de amplio espectro SPF 30 o más incluso en días nublados y reaplica cada 2 horas si estás al aire libre.</p>
+    </article>
+
+    <article class="blog-entry">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDE5cux0eSizhN4WTL5XIpAEb94L7Snwscfg&s" alt="Hidratación">
+      <h3>Hidratación según tu tipo de piel</h3>
+      <p>Piel seca: cremas con ceramidas. Piel grasa: lociones ligeras con ácido hialurónico. La hidratación correcta refuerza la barrera cutánea y reduce irritaciones.</p>
+    </article>
+
+    <article class="blog-entry">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5E5N02QGQ_V_AL-RfydP5X9_T-OBUeJmrQA&s" alt="Exfoliación química">
+      <h3>Exfoliación química moderada</h3>
+      <p>Una o dos veces por semana usa AHA o BHA para renovar células y potenciar la luminosidad. Evita combinar exfoliantes el mismo día para no sensibilizar.</p>
+    </article>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h3>¿Listo para tu cambio?</h3>
+    <a href="formulario.html" class="btn">Agendar hora</a>
+  </section>
 </main>
 
+<!-- FOOTER -->
 <footer>
   <a href="https://maps.app.goo.gl/ghdCQtosy3FGtkWH8" target="_blank">Ubícanos</a> |
   <a href="https://www.instagram.com/vitadermal/" target="_blank">Instagram</a> |
