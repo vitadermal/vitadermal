@@ -144,10 +144,11 @@
     /* ---------- MOBILE ---------- */
     @media(max-width:640px){
       nav{justify-content:center;padding:.55rem .9rem}
-      .brand,.hide-mobile,.icon-instagram,.btn{display:none}     /* escondemos extras */
+      .brand,.hide-mobile,.icon-instagram,.btn{display:none}          /* logo, texto y botones out */
       ul.menu{gap:0}
       ul.menu a,summary{padding:.35rem .55rem;font-size:.9rem}
-      .quick-links{display:flex}    /* mostramos franja con links */
+      .quick-links{display:flex}
+      .hero .btn{display:none}    /* oculta botón Agendar del héroe */
     }
   </style>
 </head>
@@ -161,7 +162,6 @@
   </div>
 
   <ul class="menu">
-    <!-- Tratamientos -->
     <li>
       <details>
         <summary>Tratamientos ▾</summary>
@@ -177,8 +177,6 @@
     </li>
 
     <li class="hide-mobile"><a href="#quienes">Quiénes somos</a></li>
-
-    <!-- Ubícanos / Contáctanos / Instagram solo escritorio -->
     <li class="hide-mobile">
       <a href="https://maps.app.goo.gl/ghdCQtosy3FGtkWH8" target="_blank">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC10aIGcrdtvbwpYkeboJsf9YXZ0K6cwbOMw&s" class="icon" alt="">
