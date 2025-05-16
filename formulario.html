@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet">
+
   <!-- Flatpickr calendario -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
@@ -39,9 +40,7 @@
       gap:1rem;margin-bottom:1.4rem;flex-wrap:wrap;
     }
     .logo{width:110px;max-width:35%;object-fit:contain}
-    .titulo{
-      flex:1 1 auto;text-align:center;
-    }
+    .titulo{flex:1 1 auto;text-align:center}
     .titulo h1{
       font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;
       background:linear-gradient(90deg,var(--marron-osc),var(--txt));
@@ -66,9 +65,8 @@
 
     /* --- AVISO --- */
     p.aviso{
-      margin-top:.8rem;font-size:.95rem;
-      background:var(--rosa);padding:.6rem .8rem;
-      border-left:4px solid var(--marron-osc);border-radius:8px;
+      margin-top:.8rem;font-size:.95rem;background:var(--rosa);
+      padding:.6rem .8rem;border-left:4px solid var(--marron-osc);border-radius:8px;
     }
 
     /* --- FORMULARIO --- */
@@ -98,15 +96,13 @@
 
 <main>
 
-  <!-- ENCABEZADO con Logo, Título y Botón Inicio -->
+  <!-- ENCABEZADO -->
   <header class="encabezado">
     <img src="logo%20vita.jpg" alt="Logo VITADERMAL" class="logo">
-
     <div class="titulo">
       <h1>Solicitud de cita</h1>
       <p><strong>VITADERMAL</strong> – Belleza&nbsp;&amp;&nbsp;Salud</p>
     </div>
-
     <a href="index.html" class="btn-home">Inicio</a>
   </header>
 
@@ -184,7 +180,7 @@
     <!-- FormSubmit ocultos -->
     <input type="hidden" name="_subject" value="Nueva solicitud de cita – VITADERMAL">
     <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="true">
+    <input type="hidden" name="_captcha" value="false"><!-- se desactiva la verificación -->
     <input type="hidden" name="_autoresponse"
            value="¡Hola! Hemos recibido tu solicitud de cita en VITADERMAL. En breve revisaremos disponibilidad y te confirmaremos por correo.">
     <input type="hidden" name="_next" value="https://vitadermal.github.io/vitadermal/?ok=1">
