@@ -35,95 +35,62 @@
     .brand{display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.4rem}
     .brand img{width:41px;height:41px;object-fit:contain}
 
-    /* Hamburguesa */
+    /* Hamburguesa móvil */
     .nav-toggle{display:none}
-    .hamburger{
-      margin-left:auto;display:none;flex-direction:column;gap:4px;cursor:pointer;
-    }
-    .hamburger span{
-      width:26px;height:3px;background:var(--txt);border-radius:3px;
-      transition:transform .3s,opacity .3s;
-    }
+    .hamburger{margin-left:auto;display:none;flex-direction:column;gap:4px;cursor:pointer}
+    .hamburger span{width:26px;height:3px;background:var(--txt);border-radius:3px;transition:.3s}
 
     /* Menú lateral */
-    ul.menu{
-      list-style:none;display:flex;align-items:center;gap:1rem;margin-left:auto;
-    }
+    ul.menu{list-style:none;display:flex;align-items:center;gap:1rem;margin-left:auto}
     ul.menu li{position:relative}
-    .link{
-      display:inline-flex;align-items:center;gap:.25rem;font-weight:700;
-      padding:.4rem .55rem;border-radius:8px;color:var(--txt);text-decoration:none;
-      white-space:nowrap;transition:background .25s;
-    }
+    .link{display:inline-flex;align-items:center;gap:.25rem;font-weight:700;
+          padding:.4rem .55rem;border-radius:8px;color:var(--txt);text-decoration:none}
     .link:hover{background:var(--marron-osc);color:#fff}
-    .icon{width:26px;height:26px;border-radius:50%;object-fit:cover}
 
-    /* Dropdown Tratamientos (escritorio y panel) */
+    /* Dropdown Tratamientos */
     details{position:relative}
     summary::-webkit-details-marker{display:none}
     summary{list-style:none;cursor:pointer}
-    .drop-menu{
-      position:absolute;top:100%;left:0;min-width:180px;padding:.6rem 0;
-      background:#fff;border-radius:12px;box-shadow:0 4px 12px #0002;display:none;
-    }
+    .drop-menu{position:absolute;top:100%;left:0;display:none;min-width:180px;padding:.6rem 0;
+               background:#fff;border-radius:12px;box-shadow:0 4px 12px #0002}
     details[open]>.drop-menu{display:block}
-    .drop-menu a{display:block;padding:.5rem 1rem;color:var(--txt);font-weight:700;text-decoration:none}
+    .drop-menu a{display:block;padding:.5rem 1rem;text-decoration:none;color:var(--txt);font-weight:700}
     .drop-menu a:hover{background:var(--rosa)}
 
     .btn{padding:.6rem 1rem;font-weight:700;border:none;border-radius:14px;
-         background:var(--marron-osc);color:#fff;text-decoration:none;transition:background .3s}
+         background:var(--marron-osc);color:#fff;text-decoration:none}
     .btn:hover{background:var(--txt)}
 
     /* ---------- QUICK LINKS (móvil) ---------- */
-    .quick-links{
-      display:none;justify-content:center;gap:1.2rem;
-      background:#ffffffee;backdrop-filter:blur(6px);
-      padding:.55rem .9rem;box-shadow:0 2px 6px #0002;
-    }
-    .quick-links a{
-      display:inline-flex;align-items:center;gap:.4rem;font-weight:700;
-      color:var(--txt);text-decoration:none;font-size:.92rem;
-    }
-    .quick-links a:hover{color:var(--marron-osc)}
+    .quick-links{display:none;justify-content:center;gap:1.2rem;
+                 background:#ffffffee;backdrop-filter:blur(6px);
+                 padding:.55rem .9rem;box-shadow:0 2px 6px #0002}
+    .quick-links a{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;
+                   color:var(--txt);text-decoration:none;font-size:.92rem}
     .quick-links img{width:24px;height:24px;border-radius:50%;object-fit:cover}
 
     /* ---------- HERO ---------- */
-    .hero{
-      text-align:center;padding:3rem 1rem;
-      background:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),
-                 url('https://source.unsplash.com/1600x900/?spa') center/cover no-repeat;
-    }
-    .hero h1{
-      font-size:clamp(2rem,6vw,3rem);font-weight:800;
-      background:linear-gradient(90deg,var(--marron-osc),var(--txt));
-      -webkit-background-clip:text;color:transparent;margin-bottom:.6rem;
-    }
+    .hero{text-align:center;padding:3rem 1rem;
+          background:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),
+                    url('https://source.unsplash.com/1600x900/?spa') center/cover no-repeat}
+    .hero h1{font-size:clamp(2rem,6vw,3rem);font-weight:800;
+             background:linear-gradient(90deg,var(--marron-osc),var(--txt));
+             -webkit-background-clip:text;color:transparent;margin-bottom:.6rem}
     .hero p{font-size:1.05rem;margin-bottom:1.6rem}
 
     /* ---------- SECCIONES ---------- */
     .wrap{max-width:1100px;margin:auto;padding:0 1rem 4rem}
     section{margin-top:4rem}
-    section h2{
-      font-size:1.8rem;font-weight:800;margin-bottom:1.8rem;text-align:center;
-      background:linear-gradient(90deg,var(--marron-osc),var(--txt));
-      -webkit-background-clip:text;color:transparent;
-    }
+    section h2{font-size:1.8rem;font-weight:800;margin-bottom:1.8rem;text-align:center;
+               background:linear-gradient(90deg,var(--marron-osc),var(--txt));
+               -webkit-background-clip:text;color:transparent}
 
     /* Tratamientos */
     .grid-trat{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
     @media(min-width:800px){.grid-trat{grid-template-columns:repeat(3,1fr)}}
-    .trat-card{
-      background:#fff;border-radius:16px;overflow:hidden;position:relative;
-      box-shadow:0 6px 18px #0001;display:flex;flex-direction:column;
-      transition:transform .3s,box-shadow .3s;
-    }
+    .trat-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 6px 18px #0001;
+               display:flex;flex-direction:column;transition:.3s}
     .trat-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 24px #0003}
-    .trat-card::after{
-      content:'';position:absolute;inset:0;
-      background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.5) 50%,transparent 100%);
-      transform:translateX(-100%);transition:transform .6s;
-    }
-    .trat-card:hover::after{transform:translateX(100%)}
     .trat-card img{height:180px;width:100%;object-fit:cover}
     .trat-content{padding:1.2rem}
     .trat-content h3{font-weight:700;font-size:1.2rem;margin-bottom:.4rem}
@@ -138,42 +105,31 @@
 
     /* CTA */
     .cta{text-align:center;margin-top:3.5rem}
-    .cta h3{
-      font-size:1.6rem;font-weight:800;margin-bottom:1.4rem;
-      background:linear-gradient(90deg,var(--marron-osc),var(--txt));
-      -webkit-background-clip:text;color:transparent;
-    }
+    .cta h3{font-size:1.6rem;font-weight:800;margin-bottom:1.4rem;
+            background:linear-gradient(90deg,var(--marron-osc),var(--txt));
+            -webkit-background-clip:text;color:transparent}
 
     /* Footer */
-    footer{
-      margin-top:auto;background:#ffffffee;backdrop-filter:blur(6px);
-      padding:1rem 1.5rem;text-align:center;font-size:.95rem;box-shadow:0 -2px 6px #0002;
-    }
+    footer{margin-top:auto;background:#ffffffee;backdrop-filter:blur(6px);
+           padding:1rem 1.5rem;text-align:center;font-size:.95rem;box-shadow:0 -2px 6px #0002}
     footer a{color:var(--txt);font-weight:700;text-decoration:none;margin:0 .4rem}
     footer a:hover{color:var(--marron-osc)}
 
-    /* ---------- MÓVIL ≤640 px ---------- */
+    /* ---------- MÓVIL ---------- */
     @media(max-width:640px){
-      /* mostrar hamburguesa */
       .hamburger{display:flex}
-
-      /* animación X */
+      /* animación X   */
       .nav-toggle:checked + .hamburger span:nth-child(1){transform:rotate(45deg) translateY(6px)}
       .nav-toggle:checked + .hamburger span:nth-child(2){opacity:0}
       .nav-toggle:checked + .hamburger span:nth-child(3){transform:rotate(-45deg) translateY(-6px)}
 
-      /* panel lateral sólo para Tratamientos */
-      ul.menu{
-        position:fixed;top:0;right:-260px;width:240px;height:100vh;
-        flex-direction:column;gap:1.2rem;padding:4.5rem 1rem 1rem;
-        background:#ffffff;box-shadow:-2px 0 10px #0003;transition:right .35s;
-        overflow-y:auto;z-index:600;
-      }
+      ul.menu{position:fixed;top:0;right:-250px;width:230px;height:100vh;
+              flex-direction:column;gap:1.2rem;padding:4.5rem 1rem 1rem;
+              background:#ffffff;box-shadow:-2px 0 10px #0003;transition:right .35s}
       .nav-toggle:checked ~ ul.menu{right:0}
-
-      /* oculta todo salvo Tratamientos dentro del panel */
+      /* solo Tratamientos visible en panel */
       .hide-mob{display:none}
-      /* quick links visibles */
+      /* enlaces rápidos */
       .quick-links{display:flex}
     }
   </style>
@@ -182,21 +138,18 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <!-- Logo -->
   <div class="brand">
     <img src="logo%20vita.jpg" alt="Logo VITADERMAL">
     VITADERMAL
   </div>
 
-  <!-- checkbox/hamburguesa -->
+  <!-- toggle -->
   <input type="checkbox" id="nav-toggle" class="nav-toggle">
   <label for="nav-toggle" class="hamburger">
     <span></span><span></span><span></span>
   </label>
 
-  <!-- menú -->
   <ul class="menu">
-    <!-- Tratamientos (visible en escritorio y en panel) -->
     <li>
       <details>
         <summary class="link">Tratamientos ▾</summary>
@@ -210,18 +163,13 @@
         </div>
       </details>
     </li>
-
-    <!-- Enlaces solo escritorio -->
+    <!-- solo escritorio -->
     <li class="hide-mob"><a href="#quienes" class="link">Quiénes somos</a></li>
-    <li class="hide-mob">
-      <a class="link" href="formulario.html">
-        <img src="https://img.icons8.com/fluency/48/appointment-reminders.png" class="icon" alt="">Agendar hora
-      </a>
-    </li>
+    <li class="hide-mob"><a href="formulario.html" class="btn">Agendar hora</a></li>
   </ul>
 </nav>
 
-<!-- QUICK LINKS (bajo la barra, siempre visibles en móvil) -->
+<!-- quick links móviles -->
 <div class="quick-links">
   <a href="https://wa.me/56996901277?text=Quiero%20saber%20sobre%20tus%20servicios" target="_blank">
     <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="">Contáctanos
@@ -285,6 +233,14 @@
     </p>
   </section>
 
+  <!-- REEL DE INSTAGRAM -->
+  <div style="max-width:500px;margin:2.5rem auto">
+    <blockquote class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DBR4kYtSBXQ/"
+      data-instgrm-version="14"
+      style="background:#FFF;border:0;margin:0;padding:0;width:100%;"></blockquote>
+  </div>
+
   <!-- CONSEJOS -->
   <section id="consejos">
     <h2>Consejos de cosmetología</h2>
@@ -292,13 +248,13 @@
     <article class="blog-entry">
       <img src="https://bellezaplena.com/wp-content/uploads/2024/06/Emulsion-de-Limpieza-Libra-Cuidado-diario-para-una-piel-suave-y-limpia.jpeg" alt="Limpieza suave">
       <h3>Limpieza diaria suave</h3>
-      <p>La base de una piel sana es una limpieza suave dos veces al día. Usa un limpiador sin sulfatos que respete el pH y retira el maquillaje antes de dormir para evitar poros obstruidos.</p>
+      <p>La base de una piel sana es una limpieza suave dos veces al día. Usa un limpiador sin sulfatos que respete el pH y retira el maquillaje antes de dormir.</p>
     </article>
 
     <article class="blog-entry">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk2Z6O54_LfyFv1xMYWXmq7BIEA8mxuSQGlQ&s" alt="Protección solar">
       <h3>Protección solar todo el año</h3>
-      <p>Los rayos UV causan envejecimiento prematuro y manchas. Aplica un protector de amplio espectro SPF 30 o más incluso en días nublados y reaplica cada 2&nbsp;h si estás al aire libre.</p>
+      <p>Los rayos UV causan envejecimiento prematuro y manchas. Aplica protector SPF 30+ incluso en días nublados y reaplica cada 2 h.</p>
     </article>
 
     <article class="blog-entry">
@@ -310,7 +266,7 @@
     <article class="blog-entry">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5E5N02QGQ_V_AL-RfydP5X9_T-OBUeJmrQA&s" alt="Exfoliación química">
       <h3>Exfoliación química moderada</h3>
-      <p>Una o dos veces por semana usa AHA o BHA para renovar células y potenciar la luminosidad. Evita combinar exfoliantes el mismo día para no sensibilizar.</p>
+      <p>Una o dos veces por semana usa AHA o BHA para renovar células y potenciar la luminosidad. Evita mezclar exfoliantes el mismo día.</p>
     </article>
   </section>
 
@@ -329,7 +285,8 @@
   <a href="mailto:vitadermal2025@gmail.com">Mail</a>
 </footer>
 
-<!-- Cerrar panel al tocar fuera -->
+<!-- Script de Instagram + cerrar panel -->
+<script async src="//www.instagram.com/embed.js"></script>
 <script>
   const navToggle=document.getElementById('nav-toggle');
   document.addEventListener('click',e=>{
