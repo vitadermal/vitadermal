@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8e1e7">
+  <title>Solicitud de Cita – VITADERMAL</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap" rel="stylesheet">
+  <!-- Flatpickr calendario -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <style>
+    :root{
+      --rosa:#f8e1e7; --morado:#e8d9ff;
+      --marron:#d8c2b0; --marron-osc:#b09a8a;
+      --txt:#4d3f3a;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      font-family:'Nunito',sans-serif;
+      min-height:100vh;display:flex;justify-content:center;align-items:center;
+      padding:1rem;
+      background:linear-gradient(135deg,var(--rosa),var(--morado) 60%,var(--marron));
+      color:var(--txt);
+    }
+    main{
+      width:100%;max-width:520px;background:#ffffffcc;backdrop-filter:blur(10px);
+      padding:2rem 2.4rem 2.6rem;border-radius:18px;box-shadow:0 8px 24px #0003;
+    }
+
+    /* --- ENCABEZADO --- */
+    .encabezado{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:1rem;margin-bottom:1.4rem;flex-wrap:wrap;
+    }
+    .logo{width:110px;max-width:35%;object-fit:contain}
+    .titulo{
+      flex:1 1 auto;text-align:center;
+    }
+    .titulo h1{
+      font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;
+      background:linear-gradient(90deg,var(--marron-osc),var(--txt));
+      -webkit-background-clip:text;color:transparent;
+    }
+    .titulo p{margin-top:.4rem;font-weight:600;font-size:.95rem}
+
+    .btn-home{
+      padding:.55rem 1.2rem;font-size:.9rem;font-weight:700;
+      background:var(--marron-osc);color:#fff;border:none;border-radius:12px;
+      text-decoration:none;white-space:nowrap;
+      transition:background .25s,transform .2s;
+    }
+    .btn-home:hover{background:var(--txt)}
+    .btn-home:active{transform:scale(.95)}
+
+    @media(max-width:599px){
+      .encabezado{flex-direction:column}
+      .btn-home{order:-1;margin-bottom:.8rem}
+      .titulo{text-align:center}
+    }
+
+    /* --- AVISO --- */
+    p.aviso{
+      margin-top:.8rem;font-size:.95rem;
+      background:var(--rosa);padding:.6rem .8rem;
+      border-left:4px solid var(--marron-osc);border-radius:8px;
+    }
+
+    /* --- FORMULARIO --- */
+    label{display:block;font-weight:600;margin-bottom:.35rem}
+    input,select{
+      width:100%;padding:.65rem .8rem;font-size:1rem;
+      border:2px solid var(--marron);border-radius:12px;background:#fff;
+      color:var(--txt);outline:none;transition:border-color .3s;
+    }
+    input:focus,select:focus{border-color:var(--marron-osc)}
+    .form-grid{display:grid;gap:1rem;margin-top:1rem}
+    @media(min-width:600px){.grid-2{grid-template-columns:1fr 1fr}}
+
+    button{
+      margin-top:1.8rem;width:100%;padding:.9rem;font-size:1.1rem;font-weight:700;
+      border:none;border-radius:14px;background:var(--marron-osc);color:#fff;
+      cursor:pointer;transition:transform .2s,background .3s;
+    }
+    button:hover{background:var(--txt)}
+    button:active{transform:scale(.97)}
+
+    #ok{margin-top:1.2rem;text-align:center;font-weight:700;color:var(--marron-osc);display:none}
+    @media(prefers-reduced-motion:reduce){*{transition:none !important}}
+  </style>
+</head>
+<body>
+
+<main>
+
+  <!-- ENCABEZADO con Logo, Título y Botón Inicio -->
+  <header class="encabezado">
+    <img src="logo%20vita.jpg" alt="Logo VITADERMAL" class="logo">
+
+    <div class="titulo">
+      <h1>Solicitud de cita</h1>
+      <p><strong>VITADERMAL</strong> – Belleza&nbsp;&amp;&nbsp;Salud</p>
+    </div>
+
+    <a href="index.html" class="btn-home">Inicio</a>
+  </header>
+
+  <p class="aviso">
+    Esto es <strong>solo una solicitud</strong>. Te confirmaremos por correo cuando la hora sea aprobada.
+  </p>
+
+  <!-- FORMULARIO -->
+  <form id="frm" action="https://formsubmit.co/mariojosejaimes@gmail.com" method="POST">
+
+    <!-- Fila 1 -->
+    <div class="form-grid grid-2">
+      <div>
+        <label for="nombre">Tu nombre:</label>
+        <input id="nombre" name="Nombre del paciente" type="text" placeholder="Ej. Mario Jaimes" required>
+      </div>
+      <div>
+        <label for="correo">Tu correo:</label>
+        <input id="correo" name="email" type="email" placeholder="ejemplo@correo.com" required>
+      </div>
+    </div>
+
+    <!-- Fila 2 -->
+    <div class="form-grid grid-2">
+      <div>
+        <label for="prof">Profesional:</label>
+        <select id="prof" name="Profesional" required>
+          <option value="" disabled selected>— Selecciona —</option>
+          <option>Dra. Lucía Gómez · Dermatología</option>
+          <option>Dr. Matías Rojas · Medicina Estética</option>
+          <option>Dra. Valentina Torres · Nutrición</option>
+          <option>Dra. Camila Silva · Cosmiatría</option>
+        </select>
+      </div>
+      <div>
+        <label for="trat">Tratamiento:</label>
+        <select id="trat" name="Tratamiento" required>
+          <option value="" disabled selected>— Selecciona —</option>
+          <option>Limpieza facial profunda</option>
+          <option>Peeling químico suave</option>
+          <option>Microneedling + vitaminas</option>
+          <option>Depilación láser zona pequeña</option>
+          <option>Masaje relajante 45&nbsp;min</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Fila 3 -->
+    <div class="form-grid grid-2">
+      <div>
+        <label for="fecha">Fecha:</label>
+        <input id="fecha" name="Fecha" type="text" placeholder="Elige una fecha" readonly required>
+      </div>
+      <div>
+        <label for="hora">Hora:</label>
+        <select id="hora" name="Hora" required>
+          <option value="" disabled selected>— Selecciona —</option>
+          <!-- 08:00–19:00 cada 30 min -->
+          <option>08:00</option><option>08:30</option>
+          <option>09:00</option><option>09:30</option>
+          <option>10:00</option><option>10:30</option>
+          <option>11:00</option><option>11:30</option>
+          <option>12:00</option><option>12:30</option>
+          <option>13:00</option><option>13:30</option>
+          <option>14:00</option><option>14:30</option>
+          <option>15:00</option><option>15:30</option>
+          <option>16:00</option><option>16:30</option>
+          <option>17:00</option><option>17:30</option>
+          <option>18:00</option><option>18:30</option>
+          <option>19:00</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- FormSubmit ocultos -->
+    <input type="hidden" name="_subject" value="Nueva solicitud de cita – VITADERMAL">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="true">
+    <input type="hidden" name="_autoresponse"
+           value="¡Hola! Hemos recibido tu solicitud de cita en VITADERMAL. En breve revisaremos disponibilidad y te confirmaremos por correo.">
+    <input type="hidden" name="_next" value="https://marioj84.github.io/Autos/?ok=1">
+
+    <button type="submit">Enviar solicitud</button>
+  </form>
+
+  <p id="ok">¡Solicitud enviada con éxito! 📧</p>
+</main>
+
+<!-- Flatpickr -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  flatpickr('#fecha',{minDate:'today',dateFormat:'d/m/Y',disableMobile:true});
+  if(new URLSearchParams(location.search).get('ok')==='1'){
+    document.getElementById('ok').style.display='block';
+    history.replaceState({},'',location.pathname);
+  }
+</script>
+</body>
+</html>
