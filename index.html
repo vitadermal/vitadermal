@@ -6,7 +6,7 @@
   <title>VITADERMAL · Belleza & Salud</title>
   <meta name="theme-color" content="#f8e1e7">
 
-  <!-- Fuente -->
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700;800&display=swap" rel="stylesheet">
 
@@ -35,7 +35,7 @@
     .brand{display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.4rem}
     .brand img{width:41px;height:41px;object-fit:contain}
 
-    /* Hamburger */
+    /* Hamburguesa */
     .nav-toggle{display:none}
     .hamburger{
       margin-left:auto;display:none;flex-direction:column;gap:4px;cursor:pointer;
@@ -45,8 +45,10 @@
       transition:transform .3s,opacity .3s;
     }
 
-    /* Menú principal */
-    ul.menu{list-style:none;display:flex;align-items:center;gap:1rem;margin-left:auto}
+    /* Menú lateral */
+    ul.menu{
+      list-style:none;display:flex;align-items:center;gap:1rem;margin-left:auto;
+    }
     ul.menu li{position:relative}
     .link{
       display:inline-flex;align-items:center;gap:.25rem;font-weight:700;
@@ -56,7 +58,7 @@
     .link:hover{background:var(--marron-osc);color:#fff}
     .icon{width:26px;height:26px;border-radius:50%;object-fit:cover}
 
-    /* Dropdown Tratamientos */
+    /* Dropdown Tratamientos (escritorio y panel) */
     details{position:relative}
     summary::-webkit-details-marker{display:none}
     summary{list-style:none;cursor:pointer}
@@ -74,9 +76,9 @@
 
     /* ---------- QUICK LINKS (móvil) ---------- */
     .quick-links{
-      display:none;background:#ffffffee;backdrop-filter:blur(6px);
-      padding:.55rem .9rem;gap:1.2rem;justify-content:center;
-      box-shadow:0 2px 6px #0002;
+      display:none;justify-content:center;gap:1.2rem;
+      background:#ffffffee;backdrop-filter:blur(6px);
+      padding:.55rem .9rem;box-shadow:0 2px 6px #0002;
     }
     .quick-links a{
       display:inline-flex;align-items:center;gap:.4rem;font-weight:700;
@@ -85,7 +87,7 @@
     .quick-links a:hover{color:var(--marron-osc)}
     .quick-links img{width:24px;height:24px;border-radius:50%;object-fit:cover}
 
-    /* ---------- HERO --------- (igual que antes) ---------- */
+    /* ---------- HERO ---------- */
     .hero{
       text-align:center;padding:3rem 1rem;
       background:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),
@@ -97,19 +99,70 @@
       -webkit-background-clip:text;color:transparent;margin-bottom:.6rem;
     }
     .hero p{font-size:1.05rem;margin-bottom:1.6rem}
-    .wrap{max-width:1100px;margin:auto;padding:0 1rem 4rem}
-    /* … resto de estilos (tratamientos, blog, footer) como antes … */
 
-    /* ---------- BREAKPOINT ≤640 px ---------- */
+    /* ---------- SECCIONES ---------- */
+    .wrap{max-width:1100px;margin:auto;padding:0 1rem 4rem}
+    section{margin-top:4rem}
+    section h2{
+      font-size:1.8rem;font-weight:800;margin-bottom:1.8rem;text-align:center;
+      background:linear-gradient(90deg,var(--marron-osc),var(--txt));
+      -webkit-background-clip:text;color:transparent;
+    }
+
+    /* Tratamientos */
+    .grid-trat{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    @media(min-width:800px){.grid-trat{grid-template-columns:repeat(3,1fr)}}
+    .trat-card{
+      background:#fff;border-radius:16px;overflow:hidden;position:relative;
+      box-shadow:0 6px 18px #0001;display:flex;flex-direction:column;
+      transition:transform .3s,box-shadow .3s;
+    }
+    .trat-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 24px #0003}
+    .trat-card::after{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.5) 50%,transparent 100%);
+      transform:translateX(-100%);transition:transform .6s;
+    }
+    .trat-card:hover::after{transform:translateX(100%)}
+    .trat-card img{height:180px;width:100%;object-fit:cover}
+    .trat-content{padding:1.2rem}
+    .trat-content h3{font-weight:700;font-size:1.2rem;margin-bottom:.4rem}
+    .trat-content p{font-size:.95rem}
+
+    /* Blog */
+    .blog-entry{max-width:800px;margin:0 auto 2.5rem;padding-bottom:2rem;border-bottom:1px solid #ffffff70}
+    .blog-entry:last-child{border:none;padding-bottom:0;margin-bottom:0}
+    .blog-entry img{width:100%;height:240px;object-fit:cover;border-radius:14px;margin-bottom:1rem}
+    .blog-entry h3{font-size:1.3rem;font-weight:800;margin-bottom:.4rem}
+    .blog-entry p{font-size:1rem;text-align:justify}
+
+    /* CTA */
+    .cta{text-align:center;margin-top:3.5rem}
+    .cta h3{
+      font-size:1.6rem;font-weight:800;margin-bottom:1.4rem;
+      background:linear-gradient(90deg,var(--marron-osc),var(--txt));
+      -webkit-background-clip:text;color:transparent;
+    }
+
+    /* Footer */
+    footer{
+      margin-top:auto;background:#ffffffee;backdrop-filter:blur(6px);
+      padding:1rem 1.5rem;text-align:center;font-size:.95rem;box-shadow:0 -2px 6px #0002;
+    }
+    footer a{color:var(--txt);font-weight:700;text-decoration:none;margin:0 .4rem}
+    footer a:hover{color:var(--marron-osc)}
+
+    /* ---------- MÓVIL ≤640 px ---------- */
     @media(max-width:640px){
       /* mostrar hamburguesa */
       .hamburger{display:flex}
+
       /* animación X */
       .nav-toggle:checked + .hamburger span:nth-child(1){transform:rotate(45deg) translateY(6px)}
       .nav-toggle:checked + .hamburger span:nth-child(2){opacity:0}
       .nav-toggle:checked + .hamburger span:nth-child(3){transform:rotate(-45deg) translateY(-6px)}
 
-      /* menú lateral sólo con Tratamientos */
+      /* panel lateral sólo para Tratamientos */
       ul.menu{
         position:fixed;top:0;right:-260px;width:240px;height:100vh;
         flex-direction:column;gap:1.2rem;padding:4.5rem 1rem 1rem;
@@ -118,13 +171,8 @@
       }
       .nav-toggle:checked ~ ul.menu{right:0}
 
-      /* ocultar todo lo que no sea Tratamientos dentro del panel */
-      ul.menu li:not(.only-mob){display:none}
-      /* logo+texto centrar */
-      .brand{margin-right:auto}
-      /* quitar botón Agendar de la barra (pero sigue en el contenido) */
-      .btn-desk{display:none}
-
+      /* oculta todo salvo Tratamientos dentro del panel */
+      .hide-mob{display:none}
       /* quick links visibles */
       .quick-links{display:flex}
     }
@@ -134,12 +182,13 @@
 
 <!-- NAV -->
 <nav id="nav">
+  <!-- Logo -->
   <div class="brand">
     <img src="logo%20vita.jpg" alt="Logo VITADERMAL">
     VITADERMAL
   </div>
 
-  <!-- switch/hamburger -->
+  <!-- checkbox/hamburguesa -->
   <input type="checkbox" id="nav-toggle" class="nav-toggle">
   <label for="nav-toggle" class="hamburger">
     <span></span><span></span><span></span>
@@ -147,8 +196,8 @@
 
   <!-- menú -->
   <ul class="menu">
-    <!-- único ítem visible en panel móvil -->
-    <li class="only-mob">
+    <!-- Tratamientos (visible en escritorio y en panel) -->
+    <li>
       <details>
         <summary class="link">Tratamientos ▾</summary>
         <div class="drop-menu">
@@ -162,13 +211,17 @@
       </details>
     </li>
 
-    <!-- resto de enlaces solo escritorio -->
-    <li><a href="#quienes" class="link hide-mob">Quiénes somos</a></li>
-    <li><a href="formulario.html" class="btn btn-desk hide-mob">Agendar hora</a></li>
+    <!-- Enlaces solo escritorio -->
+    <li class="hide-mob"><a href="#quienes" class="link">Quiénes somos</a></li>
+    <li class="hide-mob">
+      <a class="link" href="formulario.html">
+        <img src="https://img.icons8.com/fluency/48/appointment-reminders.png" class="icon" alt="">Agendar hora
+      </a>
+    </li>
   </ul>
 </nav>
 
-<!-- QUICK LINKS (móvil) -->
+<!-- QUICK LINKS (bajo la barra, siempre visibles en móvil) -->
 <div class="quick-links">
   <a href="https://wa.me/56996901277?text=Quiero%20saber%20sobre%20tus%20servicios" target="_blank">
     <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="">Contáctanos
@@ -188,20 +241,95 @@
   <a href="formulario.html" class="btn">Agendar hora</a>
 </header>
 
-<!-- CONTENIDO PRINCIPAL (igual que antes) -->
+<!-- CONTENIDO -->
 <main class="wrap">
-  <!-- … Tratamientos, Quiénes somos, Consejos, CTA … -->
+  <!-- TRATAMIENTOS -->
+  <section id="tratamientos">
+    <h2>Conoce nuestros servicios</h2>
+
+    <div class="grid-trat">
+      <article class="trat-card">
+        <img src="https://vitalierd.com/wp-content/uploads/SER-FAC-VITA-004-2.jpg" alt="Limpieza facial Glow">
+        <div class="trat-content">
+          <h3>Limpieza facial Glow</h3>
+          <p>Elimina impurezas y revitaliza tu piel con exfoliación enzimática y mascarilla hidratante.</p>
+        </div>
+      </article>
+
+      <article class="trat-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtHeGc247ZdCDgzR-qCU9bpuY0k8jvIvAZnw&s" alt="Depilación láser mini">
+        <div class="trat-content">
+          <h3>Depilación láser zona mini</h3>
+          <p>Tecnología de última generación para zonas pequeñas (axilas, bozo) casi sin dolor.</p>
+        </div>
+      </article>
+
+      <article class="trat-card">
+        <img src="https://www.spaoneandonly.cl/wp-content/uploads/2025/01/shutterstock_2497508837.jpg" alt="Masaje aromaterapia">
+        <div class="trat-content">
+          <h3>Masaje aromaterapia 60&nbsp;min</h3>
+          <p>Relaja cuerpo y mente con aceites esenciales y técnicas suecas antiestrés.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- QUIÉNES SOMOS -->
+  <section id="quienes">
+    <h2>Quiénes somos</h2>
+    <p style="max-width:780px;margin:auto;text-align:justify">
+      <strong>Misión:</strong> Brindar servicios de dermatología y estética de excelencia,
+      combinando ciencia y bienestar para mejorar la calidad de vida y la confianza de cada paciente.<br><br>
+      <strong>Visión:</strong> Ser el centro de referencia en salud cutánea y belleza integral en Latinoamérica,
+      destacándonos por innovación, calidez humana y resultados que superen expectativas.
+    </p>
+  </section>
+
+  <!-- CONSEJOS -->
+  <section id="consejos">
+    <h2>Consejos de cosmetología</h2>
+
+    <article class="blog-entry">
+      <img src="https://bellezaplena.com/wp-content/uploads/2024/06/Emulsion-de-Limpieza-Libra-Cuidado-diario-para-una-piel-suave-y-limpia.jpeg" alt="Limpieza suave">
+      <h3>Limpieza diaria suave</h3>
+      <p>La base de una piel sana es una limpieza suave dos veces al día. Usa un limpiador sin sulfatos que respete el pH y retira el maquillaje antes de dormir para evitar poros obstruidos.</p>
+    </article>
+
+    <article class="blog-entry">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk2Z6O54_LfyFv1xMYWXmq7BIEA8mxuSQGlQ&s" alt="Protección solar">
+      <h3>Protección solar todo el año</h3>
+      <p>Los rayos UV causan envejecimiento prematuro y manchas. Aplica un protector de amplio espectro SPF 30 o más incluso en días nublados y reaplica cada 2&nbsp;h si estás al aire libre.</p>
+    </article>
+
+    <article class="blog-entry">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDE5cux0eSizhN4WTL5XIpAEb94L7Snwscfg&s" alt="Hidratación">
+      <h3>Hidratación según tu tipo de piel</h3>
+      <p>Piel seca: cremas con ceramidas. Piel grasa: lociones ligeras con ácido hialurónico. La hidratación correcta refuerza la barrera cutánea.</p>
+    </article>
+
+    <article class="blog-entry">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5E5N02QGQ_V_AL-RfydP5X9_T-OBUeJmrQA&s" alt="Exfoliación química">
+      <h3>Exfoliación química moderada</h3>
+      <p>Una o dos veces por semana usa AHA o BHA para renovar células y potenciar la luminosidad. Evita combinar exfoliantes el mismo día para no sensibilizar.</p>
+    </article>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h3>¿Listo para tu cambio?</h3>
+    <a href="formulario.html" class="btn">Agendar hora</a>
+  </section>
 </main>
 
 <!-- FOOTER -->
-<footer style="text-align:center;padding:1rem 0;background:#ffffffee;backdrop-filter:blur(6px);box-shadow:0 -2px 6px #0002">
-  <a href="https://maps.app.goo.gl/ghdCQtosy3FGtkWH8" target="_blank">Ubícanos</a> ·
-  <a href="https://www.instagram.com/vitadermal/" target="_blank">Instagram</a> ·
-  <a href="https://wa.me/56996901277?text=Quiero%20saber%20sobre%20tus%20servicios" target="_blank">WhatsApp</a> ·
+<footer>
+  <a href="https://maps.app.goo.gl/ghdCQtosy3FGtkWH8" target="_blank">Ubícanos</a> |
+  <a href="https://www.instagram.com/vitadermal/" target="_blank">Instagram</a> |
+  <a href="https://wa.me/56996901277?text=Quiero%20saber%20sobre%20tus%20servicios" target="_blank">WhatsApp</a> |
   <a href="mailto:vitadermal2025@gmail.com">Mail</a>
 </footer>
 
-<!-- Cerrar panel al hacer clic fuera -->
+<!-- Cerrar panel al tocar fuera -->
 <script>
   const navToggle=document.getElementById('nav-toggle');
   document.addEventListener('click',e=>{
