@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#f8e1e7">
   <title>VITADERMAL · Belleza & Salud</title>
 
-  <!-- Google font -->
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700;800&display=swap" rel="stylesheet">
 
@@ -31,42 +31,43 @@
       background:#ffffffee;backdrop-filter:blur(8px);
       display:flex;align-items:center;justify-content:space-between;
       padding:.6rem 1.2rem;box-shadow:0 2px 6px #0002;
-      flex-wrap:wrap;gap:.8rem;
+      gap:.8rem;flex-wrap:nowrap;
     }
-    nav .brand{
+    .brand{
       display:flex;align-items:center;gap:.55rem;
-      font-weight:800;font-size:1.44rem;
-      color:var(--txt);
+      font-weight:800;font-size:1.44rem;color:var(--txt);
+      white-space:nowrap;
     }
-    nav .brand img{width:41px;height:41px;object-fit:contain}
+    .brand img{width:41px;height:41px;object-fit:contain}
 
     ul.menu{
-      list-style:none;display:flex;gap:1rem;align-items:center;
-      flex-wrap:wrap;justify-content:center;
+      list-style:none;display:flex;align-items:center;gap:1rem;
+      flex-wrap:nowrap;overflow:hidden;
     }
     ul.menu li{position:relative}
     ul.menu a{
       text-decoration:none;color:var(--txt);font-weight:700;
-      padding:.4rem .6rem;border-radius:8px;transition:background .2s;
+      padding:.4rem .55rem;border-radius:8px;transition:background .2s;
+      display:inline-flex;align-items:center;gap:.25rem;
+      white-space:nowrap;
     }
     ul.menu a:hover{background:var(--marron-osc);color:#fff}
+
+    /* dropdown */
     .dropdown:hover .drop-menu{display:block}
     .drop-menu{
-      display:none;position:absolute;top:100%;left:0;
+      display:none;position:absolute;top:100%;left:0;z-index:10;
       background:#fff;border-radius:12px;box-shadow:0 4px 12px #0002;
-      padding:.6rem 0;min-width:180px;z-index:10;
+      padding:.6rem 0;min-width:180px;
     }
-    .drop-menu a{display:block;padding:.5rem 1rem;width:100%}
-    .ig-icon{width:26px;height:26px;border-radius:50%;object-fit:cover;transition:transform .2s}
-    ul.menu a:hover .ig-icon{transform:scale(1.15)}
+    .drop-menu a{display:block;padding:.5rem 1rem}
 
-    @media(max-width:640px){
-      nav{padding:.55rem .9rem}
-      nav .brand{font-size:1.2rem}
-      nav .brand img{width:33px;height:33px}
-      ul.menu{gap:.6rem}
-      .btn-top{padding:.55rem 1rem;font-size:.85rem}
+    /* iconos de redes */
+    .icon{
+      width:26px;height:26px;border-radius:50%;object-fit:cover;
+      transition:transform .2s;
     }
+    ul.menu a:hover .icon{transform:scale(1.15)}
 
     /* ---------- BOTÓN GENERAL ---------- */
     .btn{
@@ -74,7 +75,7 @@
       border-radius:16px;border:none;background:var(--marron-osc);color:#fff;
       text-decoration:none;transition:background .3s,transform .2s;
     }
-    .btn:hover{background:var(--txt)}.btn:active{transform:scale(.97)}
+    .btn:hover{background:var(--txt)} .btn:active{transform:scale(.97)}
 
     /* ---------- HERO ---------- */
     .hero{
@@ -141,6 +142,17 @@
     }
     footer a{color:var(--txt);font-weight:700;text-decoration:none;margin:0 .4rem}
     footer a:hover{color:var(--marron-osc)}
+
+    /* ---------- MOBILE (≤640 px) ---------- */
+    @media(max-width:640px){
+      nav{padding:.55rem .9rem}
+      .brand{font-size:1.2rem}
+      .brand img{width:33px;height:33px}
+      ul.menu{gap:.6rem}
+      ul.menu a{padding:.3rem .4rem;font-size:.8rem}
+      .icon{width:22px;height:22px}
+      .hide-mobile{display:none}
+    }
   </style>
 </head>
 <body>
@@ -153,6 +165,7 @@
   </div>
 
   <ul class="menu">
+    <!-- Tratamientos -->
     <li class="dropdown">
       <a href="#">Tratamientos ▾</a>
       <div class="drop-menu">
@@ -165,23 +178,36 @@
       </div>
     </li>
 
-    <li><a href="#quienes">Quiénes somos</a></li>
-    <li><a href="https://maps.app.goo.gl/ghdCQtosy3FGtkWH8" target="_blank">Ubícanos</a></li>
+    <!-- Quiénes somos (oculto en móvil) -->
+    <li class="hide-mobile"><a href="#quienes">Quiénes somos</a></li>
 
-    <!-- WhatsApp actualizado -->
+    <!-- Ubícanos con icono -->
+    <li>
+      <a href="https://maps.app.goo.gl/ghdCQtosy3FGtkWH8" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1200px-Google_Maps_icon_%282020%29.svg.png" alt="" class="icon">
+        Ubícanos
+      </a>
+    </li>
+
+    <!-- WhatsApp con icono -->
     <li>
       <a href="https://wa.me/56996901277?text=Quiero%20saber%20sobre%20tus%20servicios" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="" class="icon">
         Contáctanos
       </a>
     </li>
 
+    <!-- Instagram -->
     <li>
       <a href="https://www.instagram.com/vitadermal/" target="_blank" aria-label="Instagram">
-        <img src="https://img.freepik.com/vector-premium/icono-logotipo-vector-instagram-logotipo-redes-sociales_901408-392.jpg" alt="Instagram" class="ig-icon">
+        <img src="https://img.freepik.com/vector-premium/icono-logotipo-vector-instagram-logotipo-redes-sociales_901408-392.jpg" alt="Instagram" class="icon">
       </a>
     </li>
 
-    <li><a href="formulario.html" class="btn btn-top" style="padding:.6rem 1rem">Agendar hora</a></li>
+    <!-- Botón Agendar (oculto en móvil) -->
+    <li class="hide-mobile">
+      <a href="formulario.html" class="btn btn-top" style="padding:.6rem 1rem">Agendar hora</a>
+    </li>
   </ul>
 </nav>
 
