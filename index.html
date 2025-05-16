@@ -6,7 +6,7 @@
   <title>VITADERMAL · Belleza & Salud</title>
   <meta name="theme-color" content="#f8e1e7">
 
-  <!-- Google Font -->
+  <!-- Fuente -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700;800&display=swap" rel="stylesheet">
 
@@ -32,60 +32,60 @@
       display:flex;align-items:center;gap:1rem;
       padding:.6rem 1.2rem;box-shadow:0 2px 6px #0002;
     }
-
-    /* logo + texto */
-    .brand{display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.44rem}
+    .brand{display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.4rem}
     .brand img{width:41px;height:41px;object-fit:contain}
 
-    /* contact link (versión móvil) */
-    .contact-mob{
-      display:none;align-items:center;gap:.35rem;font-weight:700;
-      text-decoration:none;color:var(--txt);margin-left:auto;
-    }
-    .contact-mob img{width:26px;height:26px;border-radius:50%;object-fit:cover}
-
-    /* hamburger */
+    /* Hamburger */
     .nav-toggle{display:none}
     .hamburger{
-      display:none;flex-direction:column;gap:4px;cursor:pointer;margin-left:auto;
+      margin-left:auto;display:none;flex-direction:column;gap:4px;cursor:pointer;
     }
     .hamburger span{
       width:26px;height:3px;background:var(--txt);border-radius:3px;
       transition:transform .3s,opacity .3s;
     }
 
-    /* menu links */
-    ul.menu{
-      list-style:none;display:flex;align-items:center;gap:1rem;margin-left:auto;
-    }
+    /* Menú principal */
+    ul.menu{list-style:none;display:flex;align-items:center;gap:1rem;margin-left:auto}
     ul.menu li{position:relative}
     .link{
-      display:inline-flex;align-items:center;gap:.25rem;
-      padding:.4rem .55rem;font-weight:700;border-radius:8px;
-      color:var(--txt);text-decoration:none;white-space:nowrap;
-      transition:background .25s;
+      display:inline-flex;align-items:center;gap:.25rem;font-weight:700;
+      padding:.4rem .55rem;border-radius:8px;color:var(--txt);text-decoration:none;
+      white-space:nowrap;transition:background .25s;
     }
     .link:hover{background:var(--marron-osc);color:#fff}
     .icon{width:26px;height:26px;border-radius:50%;object-fit:cover}
 
-    /* dropdown */
+    /* Dropdown Tratamientos */
     details{position:relative}
-    summary{list-style:none;cursor:pointer}
     summary::-webkit-details-marker{display:none}
+    summary{list-style:none;cursor:pointer}
     .drop-menu{
-      position:absolute;top:100%;left:0;background:#fff;border-radius:12px;
-      box-shadow:0 4px 12px #0002;padding:.6rem 0;min-width:180px;display:none;
+      position:absolute;top:100%;left:0;min-width:180px;padding:.6rem 0;
+      background:#fff;border-radius:12px;box-shadow:0 4px 12px #0002;display:none;
     }
     details[open]>.drop-menu{display:block}
-    .drop-menu a{display:block;padding:.5rem 1rem;color:var(--txt);text-decoration:none;font-weight:700}
+    .drop-menu a{display:block;padding:.5rem 1rem;color:var(--txt);font-weight:700;text-decoration:none}
     .drop-menu a:hover{background:var(--rosa)}
 
-    .btn{display:inline-block;padding:.6rem 1rem;font-size:1rem;font-weight:700;
-         border:none;border-radius:14px;background:var(--marron-osc);color:#fff;
-         text-decoration:none;transition:background .3s}
+    .btn{padding:.6rem 1rem;font-weight:700;border:none;border-radius:14px;
+         background:var(--marron-osc);color:#fff;text-decoration:none;transition:background .3s}
     .btn:hover{background:var(--txt)}
 
-    /* ---------- HERO / DEMÁS SECCIONES = igual que antes ---------- */
+    /* ---------- QUICK LINKS (móvil) ---------- */
+    .quick-links{
+      display:none;background:#ffffffee;backdrop-filter:blur(6px);
+      padding:.55rem .9rem;gap:1.2rem;justify-content:center;
+      box-shadow:0 2px 6px #0002;
+    }
+    .quick-links a{
+      display:inline-flex;align-items:center;gap:.4rem;font-weight:700;
+      color:var(--txt);text-decoration:none;font-size:.92rem;
+    }
+    .quick-links a:hover{color:var(--marron-osc)}
+    .quick-links img{width:24px;height:24px;border-radius:50%;object-fit:cover}
+
+    /* ---------- HERO --------- (igual que antes) ---------- */
     .hero{
       text-align:center;padding:3rem 1rem;
       background:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),
@@ -98,18 +98,18 @@
     }
     .hero p{font-size:1.05rem;margin-bottom:1.6rem}
     .wrap{max-width:1100px;margin:auto;padding:0 1rem 4rem}
-    /* … resto de estilos (grid-trat, blog, footer) idénticos a tu versión actual … */
+    /* … resto de estilos (tratamientos, blog, footer) como antes … */
 
-    /* ----------  MÓVIL (≤640 px) ---------- */
+    /* ---------- BREAKPOINT ≤640 px ---------- */
     @media(max-width:640px){
-      /* mostrar contacto móvil y hamburger */
-      .contact-mob{display:flex}
+      /* mostrar hamburguesa */
       .hamburger{display:flex}
       /* animación X */
       .nav-toggle:checked + .hamburger span:nth-child(1){transform:rotate(45deg) translateY(6px)}
       .nav-toggle:checked + .hamburger span:nth-child(2){opacity:0}
       .nav-toggle:checked + .hamburger span:nth-child(3){transform:rotate(-45deg) translateY(-6px)}
-      /* menú responsive */
+
+      /* menú lateral sólo con Tratamientos */
       ul.menu{
         position:fixed;top:0;right:-260px;width:240px;height:100vh;
         flex-direction:column;gap:1.2rem;padding:4.5rem 1rem 1rem;
@@ -117,36 +117,38 @@
         overflow-y:auto;z-index:600;
       }
       .nav-toggle:checked ~ ul.menu{right:0}
-      /* ocultar contact desktop (el que tiene icono dentro del menú) */
-      .contact-desk{display:none}
+
+      /* ocultar todo lo que no sea Tratamientos dentro del panel */
+      ul.menu li:not(.only-mob){display:none}
+      /* logo+texto centrar */
+      .brand{margin-right:auto}
+      /* quitar botón Agendar de la barra (pero sigue en el contenido) */
+      .btn-desk{display:none}
+
+      /* quick links visibles */
+      .quick-links{display:flex}
     }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <!-- Logo + texto -->
+<nav id="nav">
   <div class="brand">
     <img src="logo%20vita.jpg" alt="Logo VITADERMAL">
     VITADERMAL
   </div>
 
-  <!-- link visible solo móvil -->
-  <a class="contact-mob" href="https://wa.me/56996901277?text=Quiero%20saber%20sobre%20tus%20servicios" target="_blank">
-    <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="">Contáctanos
-  </a>
-
-  <!-- hamburger (móvil) -->
+  <!-- switch/hamburger -->
   <input type="checkbox" id="nav-toggle" class="nav-toggle">
   <label for="nav-toggle" class="hamburger">
     <span></span><span></span><span></span>
   </label>
 
-  <!-- Menú completo -->
+  <!-- menú -->
   <ul class="menu">
-    <!-- Tratamientos -->
-    <li>
+    <!-- único ítem visible en panel móvil -->
+    <li class="only-mob">
       <details>
         <summary class="link">Tratamientos ▾</summary>
         <div class="drop-menu">
@@ -160,33 +162,24 @@
       </details>
     </li>
 
-    <li><a href="#quienes" class="link">Quiénes somos</a></li>
-
-    <li>
-      <a class="link" href="https://maps.app.goo.gl/ghdCQtosy3FGtkWH8" target="_blank">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC10aIGcrdtvbwpYkeboJsf9YXZ0K6cwbOMw&s" class="icon" alt="">
-        Ubícanos
-      </a>
-    </li>
-
-    <!-- Contacto duplicado para escritorio -->
-    <li class="contact-desk">
-      <a class="link" href="https://wa.me/56996901277?text=Quiero%20saber%20sobre%20tus%20servicios" target="_blank">
-        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" class="icon" alt="">
-        Contáctanos
-      </a>
-    </li>
-
-    <li>
-      <a class="link" href="https://www.instagram.com/vitadermal/" target="_blank">
-        <img src="https://img.freepik.com/vector-premium/icono-logotipo-vector-instagram-logotipo-redes-sociales_901408-392.jpg" class="icon" alt="">
-        Instagram
-      </a>
-    </li>
-
-    <li><a href="formulario.html" class="btn">Agendar hora</a></li>
+    <!-- resto de enlaces solo escritorio -->
+    <li><a href="#quienes" class="link hide-mob">Quiénes somos</a></li>
+    <li><a href="formulario.html" class="btn btn-desk hide-mob">Agendar hora</a></li>
   </ul>
 </nav>
+
+<!-- QUICK LINKS (móvil) -->
+<div class="quick-links">
+  <a href="https://wa.me/56996901277?text=Quiero%20saber%20sobre%20tus%20servicios" target="_blank">
+    <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="">Contáctanos
+  </a>
+  <a href="https://maps.app.goo.gl/ghdCQtosy3FGtkWH8" target="_blank">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC10aIGcrdtvbwpYkeboJsf9YXZ0K6cwbOMw&s" alt="">Ubícanos
+  </a>
+  <a href="https://www.instagram.com/vitadermal/" target="_blank">
+    <img src="https://img.freepik.com/vector-premium/icono-logotipo-vector-instagram-logotipo-redes-sociales_901408-392.jpg" alt="">Instagram
+  </a>
+</div>
 
 <!-- HERO -->
 <header class="hero">
@@ -195,16 +188,27 @@
   <a href="formulario.html" class="btn">Agendar hora</a>
 </header>
 
-<!-- RESTO DEL CONTENIDO (igual que antes) -->
+<!-- CONTENIDO PRINCIPAL (igual que antes) -->
 <main class="wrap">
-  <!-- secciones Tratamientos, Quiénes somos, Consejos, CTA … -->
+  <!-- … Tratamientos, Quiénes somos, Consejos, CTA … -->
 </main>
 
+<!-- FOOTER -->
 <footer style="text-align:center;padding:1rem 0;background:#ffffffee;backdrop-filter:blur(6px);box-shadow:0 -2px 6px #0002">
   <a href="https://maps.app.goo.gl/ghdCQtosy3FGtkWH8" target="_blank">Ubícanos</a> ·
   <a href="https://www.instagram.com/vitadermal/" target="_blank">Instagram</a> ·
   <a href="https://wa.me/56996901277?text=Quiero%20saber%20sobre%20tus%20servicios" target="_blank">WhatsApp</a> ·
   <a href="mailto:vitadermal2025@gmail.com">Mail</a>
 </footer>
+
+<!-- Cerrar panel al hacer clic fuera -->
+<script>
+  const navToggle=document.getElementById('nav-toggle');
+  document.addEventListener('click',e=>{
+    if(navToggle.checked && !document.getElementById('nav').contains(e.target)){
+      navToggle.checked=false;
+    }
+  });
+</script>
 </body>
 </html>
