@@ -1,156 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VITADERMAL · Belleza & Salud</title>
-  <meta name="theme-color" content="#f8e1e7">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VITADERMAL · Belleza & Salud</title>
+<meta name="theme-color" content="#f8e1e7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700;800&display=swap" rel="stylesheet">
 
-  <!-- Fuente -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rosa:#f8e1e7; --morado:#e8d9ff;
+  --marron:#d8c2b0; --marron-osc:#b09a8a;
+  --txt:#4d3f3a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
 
-  <style>
-    :root{
-      --rosa:#f8e1e7; --morado:#e8d9ff;
-      --marron:#d8c2b0; --marron-osc:#b09a8a;
-      --txt:#4d3f3a;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Nunito',sans-serif;
+  background:linear-gradient(135deg,var(--rosa),var(--morado) 60%,var(--marron));
+  color:var(--txt);line-height:1.45;
+  display:flex;flex-direction:column;min-height:100vh;
+}
 
-    body{
-      font-family:'Nunito',sans-serif;
-      background:linear-gradient(135deg,var(--rosa),var(--morado) 60%,var(--marron));
-      color:var(--txt);line-height:1.45;
-      display:flex;flex-direction:column;min-height:100vh;
-    }
+/* ---------- NAVBAR ---------- */
+nav{
+  position:sticky;top:0;z-index:500;
+  background:#ffffffee;backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.6rem 1.2rem;box-shadow:0 2px 6px #0002;
+  gap:.8rem;overflow:visible;
+}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.44rem;color:var(--txt)}
+.brand img{width:41px;height:41px;object-fit:contain}
+ul.menu{list-style:none;display:flex;align-items:center;gap:1rem}
+ul.menu li{position:relative}
+ul.menu a,summary{
+  text-decoration:none;color:var(--txt);font-weight:700;
+  padding:.4rem .55rem;border-radius:8px;display:inline-flex;align-items:center;
+  gap:.25rem;cursor:pointer;white-space:nowrap;transition:background .2s;
+}
+ul.menu a:hover,summary:hover{background:var(--marron-osc);color:#fff}
 
-    /* ---------- NAVBAR ---------- */
-    nav{
-      position:sticky;top:0;z-index:500;
-      background:#ffffffee;backdrop-filter:blur(8px);
-      display:flex;align-items:center;justify-content:space-between;
-      padding:.6rem 1.2rem;box-shadow:0 2px 6px #0002;
-      gap:.8rem;overflow:visible;
-    }
-    .brand{display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.44rem;color:var(--txt)}
-    .brand img{width:41px;height:41px;object-fit:contain}
+details{position:relative;display:inline-block}
+summary::-webkit-details-marker{display:none}
+summary{list-style:none}
+details[open] summary{background:var(--marron-osc);color:#fff}
+.drop-menu{
+  position:absolute;top:100%;left:0;min-width:180px;
+  background:#fff;border-radius:12px;box-shadow:0 4px 12px #0002;
+  padding:.6rem 0;z-index:10;
+}
+.drop-menu a{display:block;padding:.5rem 1rem}
 
-    ul.menu{list-style:none;display:flex;align-items:center;gap:1rem}
-    ul.menu li{position:relative}
-    ul.menu a,summary{
-      text-decoration:none;color:var(--txt);font-weight:700;
-      padding:.4rem .55rem;border-radius:8px;display:inline-flex;align-items:center;
-      gap:.25rem;cursor:pointer;white-space:nowrap;transition:background .2s;
-    }
-    ul.menu a:hover,summary:hover{background:var(--marron-osc);color:#fff}
+.icon{width:26px;height:26px;border-radius:50%;object-fit:cover;transition:transform .2s}
+ul.menu a:hover .icon,summary:hover .icon{transform:scale(1.15)}
 
-    details{position:relative;display:inline-block}
-    summary::-webkit-details-marker{display:none}
-    summary{list-style:none}
-    details[open] summary{background:var(--marron-osc);color:#fff}
-    .drop-menu{
-      position:absolute;top:100%;left:0;background:#fff;border-radius:12px;
-      padding:.6rem 0;min-width:180px;box-shadow:0 4px 12px #0002;z-index:10;
-    }
-    .drop-menu a{display:block;padding:.5rem 1rem}
+.btn{
+  display:inline-block;padding:1rem 2rem;font-size:1rem;font-weight:700;
+  border:none;border-radius:16px;background:var(--marron-osc);color:#fff;
+  text-decoration:none;transition:background .3s,transform .2s;
+}
+.btn:hover{background:var(--txt)}.btn:active{transform:scale(.97)}
 
-    .icon{width:26px;height:26px;border-radius:50%;object-fit:cover;transition:transform .2s}
-    ul.menu a:hover .icon,summary:hover .icon{transform:scale(1.15)}
+/* ---------- QUICK LINKS (solo móvil) ---------- */
+.quick-links{
+  display:none;align-items:center;justify-content:center;
+  gap:1.3rem;background:#ffffffee;backdrop-filter:blur(6px);
+  padding:.55rem .9rem;box-shadow:0 2px 6px #0002;
+}
+.quick-links a{
+  display:inline-flex;align-items:center;gap:.45rem;font-weight:700;
+  color:var(--txt);text-decoration:none;font-size:.92rem;transition:color .25s;
+}
+.quick-links a:hover{color:var(--marron-osc)}
+.quick-links img{width:24px;height:24px;border-radius:50%;object-fit:cover}
 
-    .btn{display:inline-block;padding:1rem 2rem;font-size:1rem;font-weight:700;
-         border:none;border-radius:16px;background:var(--marron-osc);color:#fff;
-         text-decoration:none;transition:background .3s,transform .2s}
-    .btn:hover{background:var(--txt)}.btn:active{transform:scale(.97)}
+/* ---------- HERO ---------- */
+.hero{
+  text-align:center;padding:3rem 1rem;
+  background:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),
+             url('https://source.unsplash.com/1600x900/?spa') center/cover no-repeat;
+}
+.hero h1{
+  font-size:clamp(2rem,6vw,3rem);font-weight:800;
+  background:linear-gradient(90deg,var(--marron-osc),var(--txt));
+  -webkit-background-clip:text;color:transparent;margin-bottom:.6rem;
+}
+.hero p{font-size:1.05rem;margin-bottom:1.6rem}
 
-    /* ---------- QUICK LINKS (solo móvil) ---------- */
-    .quick-links{
-      display:none;align-items:center;justify-content:center;
-      gap:1.3rem;background:#ffffffee;backdrop-filter:blur(6px);
-      padding:.55rem .9rem;box-shadow:0 2px 6px #0002;
-    }
-    .quick-links a{
-      display:inline-flex;align-items:center;gap:.45rem;font-weight:700;
-      color:var(--txt);text-decoration:none;font-size:.92rem;transition:color .25s;
-    }
-    .quick-links a:hover{color:var(--marron-osc)}
-    .quick-links img{width:24px;height:24px;border-radius:50%;object-fit:cover}
+/* ---------- CONTENIDO (sin cambios) ---------- */
+.wrap{max-width:1100px;margin:auto;padding:0 1rem 4rem}
+section{margin-top:4rem}
+section h2{
+  font-size:1.8rem;font-weight:800;margin-bottom:1.8rem;text-align:center;
+  background:linear-gradient(90deg,var(--marron-osc),var(--txt));
+  -webkit-background-clip:text;color:transparent;
+}
+.grid-trat{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+@media(min-width:800px){.grid-trat{grid-template-columns:repeat(3,1fr)}}
+.trat-card{
+  background:#fff;border-radius:16px;overflow:hidden;position:relative;
+  box-shadow:0 6px 18px #0001;display:flex;flex-direction:column;
+  transition:transform .3s,box-shadow .3s;
+}
+.trat-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 24px #0003}
+.trat-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.5) 50%,transparent 100%);
+  transform:translateX(-100%);transition:transform .6s;
+}
+.trat-card:hover::after{transform:translateX(100%)}
+.trat-card img{height:180px;width:100%;object-fit:cover}
+.trat-content{padding:1.2rem}
+.trat-content h3{font-weight:700;font-size:1.2rem;margin-bottom:.4rem}
+.trat-content p{font-size:.95rem}
 
-    /* ---------- HERO ---------- */
-    .hero{
-      text-align:center;padding:3rem 1rem;
-      background:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),
-                 url('https://source.unsplash.com/1600x900/?spa') center/cover no-repeat;
-    }
-    .hero h1{
-      font-size:clamp(2rem,6vw,3rem);font-weight:800;
-      background:linear-gradient(90deg,var(--marron-osc),var(--txt));
-      -webkit-background-clip:text;color:transparent;margin-bottom:.6rem;
-    }
-    .hero p{font-size:1.05rem;margin-bottom:1.6rem}
+.blog-entry{max-width:800px;margin:0 auto 2.5rem;padding-bottom:2rem;border-bottom:1px solid #ffffff70}
+.blog-entry:last-child{border:none;padding-bottom:0;margin-bottom:0}
+.blog-entry img{width:100%;height:240px;object-fit:cover;border-radius:14px;margin-bottom:1rem}
+.blog-entry h3{font-size:1.3rem;font-weight:800;margin-bottom:.4rem}
+.blog-entry p{font-size:1rem;text-align:justify}
 
-    /* ---------- CONTENIDO ---------- */
-    .wrap{max-width:1100px;margin:auto;padding:0 1rem 4rem}
-    section{margin-top:4rem}
-    section h2{
-      font-size:1.8rem;font-weight:800;margin-bottom:1.8rem;text-align:center;
-      background:linear-gradient(90deg,var(--marron-osc),var(--txt));
-      -webkit-background-clip:text;color:transparent;
-    }
+.cta{text-align:center;margin-top:3.5rem}
+.cta h3{
+  font-size:1.6rem;font-weight:800;margin-bottom:1.4rem;
+  background:linear-gradient(90deg,var(--marron-osc),var(--txt));
+  -webkit-background-clip:text;color:transparent;
+}
 
-    /* Tratamientos */
-    .grid-trat{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    @media(min-width:800px){.grid-trat{grid-template-columns:repeat(3,1fr)}}
-    .trat-card{
-      background:#fff;border-radius:16px;overflow:hidden;position:relative;
-      box-shadow:0 6px 18px #0001;display:flex;flex-direction:column;
-      transition:transform .3s,box-shadow .3s;
-    }
-    .trat-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 24px #0003}
-    .trat-card::after{
-      content:'';position:absolute;inset:0;
-      background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.5) 50%,transparent 100%);
-      transform:translateX(-100%);transition:transform .6s;
-    }
-    .trat-card:hover::after{transform:translateX(100%)}
-    .trat-card img{height:180px;width:100%;object-fit:cover}
-    .trat-content{padding:1.2rem}
-    .trat-content h3{font-weight:700;font-size:1.2rem;margin-bottom:.4rem}
-    .trat-content p{font-size:.95rem}
+/* ---------- FOOTER ---------- */
+footer{
+  margin-top:auto;background:#ffffffee;backdrop-filter:blur(6px);
+  padding:1rem 1.5rem;text-align:center;font-size:.95rem;box-shadow:0 -2px 6px #0002;
+}
+footer a{color:var(--txt);font-weight:700;text-decoration:none;margin:0 .4rem}
+footer a:hover{color:var(--marron-osc)}
 
-    /* Blog / Consejos */
-    .blog-entry{max-width:800px;margin:0 auto 2.5rem;padding-bottom:2rem;border-bottom:1px solid #ffffff70}
-    .blog-entry:last-child{border:none;padding-bottom:0;margin-bottom:0}
-    .blog-entry img{width:100%;height:240px;object-fit:cover;border-radius:14px;margin-bottom:1rem}
-    .blog-entry h3{font-size:1.3rem;font-weight:800;margin-bottom:.4rem}
-    .blog-entry p{font-size:1rem;text-align:justify}
-
-    /* CTA */
-    .cta{text-align:center;margin-top:3.5rem}
-    .cta h3{
-      font-size:1.6rem;font-weight:800;margin-bottom:1.4rem;
-      background:linear-gradient(90deg,var(--marron-osc),var(--txt));
-      -webkit-background-clip:text;color:transparent;
-    }
-
-    /* Footer */
-    footer{
-      margin-top:auto;background:#ffffffee;backdrop-filter:blur(6px);
-      padding:1rem 1.5rem;text-align:center;font-size:.95rem;box-shadow:0 -2px 6px #0002;
-    }
-    footer a{color:var(--txt);font-weight:700;text-decoration:none;margin:0 .4rem}
-    footer a:hover{color:var(--marron-osc)}
-
-    /* ---------- MOBILE ---------- */
-    @media(max-width:640px){
-      nav{justify-content:center;padding:.55rem .9rem}
-      .brand,.hide-mobile,.icon-instagram,.btn{display:none}          /* logo, texto y botones out */
-      ul.menu{gap:0}
-      ul.menu a,summary{padding:.35rem .55rem;font-size:.9rem}
-      .quick-links{display:flex}
-      .hero .btn{display:none}    /* oculta botón Agendar del héroe */
-    }
-  </style>
+/* ---------- MOBILE ≤ 800 px ---------- */
+@media(max-width:800px){
+  nav{justify-content:center;padding:.55rem .9rem}
+  .brand, .btn, .hide-mobile, .icon-instagram{display:none} /* logo + texto + botones fuera */
+  ul.menu{gap:0}
+  ul.menu a,summary{padding:.35rem .55rem;font-size:.9rem}
+  .quick-links{display:flex}
+  .hero .btn{display:none}                                   /* botón héroe fuera */
+}
+</style>
 </head>
 <body>
 
@@ -177,40 +173,35 @@
     </li>
 
     <li class="hide-mobile"><a href="#quienes">Quiénes somos</a></li>
+
+    <!-- Enlaces visibles solo en escritorio -->
     <li class="hide-mobile">
       <a href="https://maps.app.goo.gl/ghdCQtosy3FGtkWH8" target="_blank">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC10aIGcrdtvbwpYkeboJsf9YXZ0K6cwbOMw&s" class="icon" alt="">
-        Ubícanos
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC10aIGcrdtvbwpYkeboJsf9YXZ0K6cwbOMw&s" class="icon" alt=""> Ubícanos
       </a>
     </li>
     <li class="hide-mobile">
       <a href="https://wa.me/56996901277?text=Quiero%20saber%20sobre%20tus%20servicios" target="_blank">
-        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" class="icon" alt="">
-        Contáctanos
+        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" class="icon" alt=""> Contáctanos
       </a>
     </li>
     <li class="hide-mobile">
       <a href="https://www.instagram.com/vitadermal/" target="_blank">
         <img src="https://img.freepik.com/vector-premium/icono-logotipo-vector-instagram-logotipo-redes-sociales_901408-392.jpg"
-             class="icon icon-instagram" alt="">
-        Instagram
+             class="icon icon-instagram" alt=""> Instagram
       </a>
     </li>
-    <li class="hide-mobile">
-      <a href="formulario.html" class="btn" style="padding:.6rem 1rem">Agendar hora</a>
-    </li>
+    <li class="hide-mobile"><a href="formulario.html" class="btn" style="padding:.6rem 1rem">Agendar hora</a></li>
   </ul>
 </nav>
 
 <!-- QUICK LINKS (solo móvil) -->
 <div class="quick-links">
   <a href="https://maps.app.goo.gl/ghdCQtosy3FGtkWH8" target="_blank">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC10aIGcrdtvbwpYkeboJsf9YXZ0K6cwbOMw&s" alt="">
-    Ubícanos
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC10aIGcrdtvbwpYkeboJsf9YXZ0K6cwbOMw&s" alt=""> Ubícanos
   </a>
   <a href="https://wa.me/56996901277?text=Quiero%20saber%20sobre%20tus%20servicios" target="_blank">
-    <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="">
-    Contáctanos
+    <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt=""> Contáctanos
   </a>
 </div>
 
@@ -221,12 +212,10 @@
   <a href="formulario.html" class="btn">Agendar hora</a>
 </header>
 
-<!-- CONTENIDO -->
 <main class="wrap">
   <!-- TRATAMIENTOS -->
   <section id="tratamientos">
     <h2>Conoce nuestros servicios</h2>
-
     <div class="grid-trat">
       <article class="trat-card">
         <img src="https://vitalierd.com/wp-content/uploads/SER-FAC-VITA-004-2.jpg" alt="Limpieza facial Glow">
@@ -301,7 +290,6 @@
   </section>
 </main>
 
-<!-- FOOTER -->
 <footer>
   <a href="https://maps.app.goo.gl/ghdCQtosy3FGtkWH8" target="_blank">Ubícanos</a> |
   <a href="https://www.instagram.com/vitadermal/" target="_blank">Instagram</a> |
