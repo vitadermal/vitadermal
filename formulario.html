@@ -34,7 +34,7 @@
       padding:2rem 2.4rem 2.6rem;border-radius:18px;box-shadow:0 8px 24px #0003;
     }
 
-    /* --- ENCABEZADO --- */
+    /* ENCABEZADO */
     .encabezado{
       display:flex;align-items:center;justify-content:space-between;
       gap:1rem;margin-bottom:1.4rem;flex-wrap:wrap;
@@ -63,13 +63,13 @@
       .titulo{text-align:center}
     }
 
-    /* --- AVISO --- */
+    /* AVISO */
     p.aviso{
       margin-top:.8rem;font-size:.95rem;background:var(--rosa);
       padding:.6rem .8rem;border-left:4px solid var(--marron-osc);border-radius:8px;
     }
 
-    /* --- FORMULARIO --- */
+    /* FORMULARIO */
     label{display:block;font-weight:600;margin-bottom:.35rem}
     input,select{
       width:100%;padding:.65rem .8rem;font-size:1rem;
@@ -88,7 +88,8 @@
     button:hover{background:var(--txt)}
     button:active{transform:scale(.97)}
 
-    #ok{margin-top:1.2rem;text-align:center;font-weight:700;color:var(--marron-osc);display:none}
+    #ok{margin-top:1.2rem;text-align:center;font-weight:700;
+        color:var(--marron-osc);display:none}
     @media(prefers-reduced-motion:reduce){*{transition:none !important}}
   </style>
 </head>
@@ -177,24 +178,28 @@
       </div>
     </div>
 
-    <!-- FormSubmit ocultos -->
+    <!-- Configuración FormSubmit -->
     <input type="hidden" name="_subject" value="Nueva solicitud de cita – VITADERMAL">
     <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false"><!-- se desactiva la verificación -->
+    <input type="hidden" name="_captcha" value="false"><!-- sin verificación -->
+    <!-- correo automático al paciente -->
     <input type="hidden" name="_autoresponse"
-           value="¡Hola! Hemos recibido tu solicitud de cita en VITADERMAL. En breve revisaremos disponibilidad y te confirmaremos por correo.">
+           value="¡Hola! Tu solicitud de cita ha sido registrada. En breve revisaremos disponibilidad y te confirmaremos por correo. Gracias por confiar en VITADERMAL.">
+    <!-- redirección -->
     <input type="hidden" name="_next" value="https://vitadermal.github.io/vitadermal/?ok=1">
 
     <button type="submit">Enviar solicitud</button>
   </form>
 
-  <p id="ok">¡Solicitud enviada con éxito! 📧</p>
+  <p id="ok">¡Solicitud registrada! Por favor espera la confirmación de nuestra estética.</p>
 </main>
 
 <!-- Flatpickr -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
   flatpickr('#fecha',{minDate:'today',dateFormat:'d/m/Y',disableMobile:true});
+
+  /* Mostrar aviso si la URL viene con ?ok=1 */
   if(new URLSearchParams(location.search).get('ok')==='1'){
     document.getElementById('ok').style.display='block';
     history.replaceState({},'',location.pathname);
